@@ -7,6 +7,7 @@ export class Pixabay {
     constructor() {
         this.searchQuery = ''
         this.page = 1
+        // this.totalPage = 0;
     }
 
     axiosPhotos(){
@@ -16,11 +17,16 @@ export class Pixabay {
             image_type: 'photo',
             orientation: 'horizontal',
             safesearch: true,
-            per_page: 20,
+            per_page: 40,
             page: this.page
         };
 
-        return axios.get(`${this.#BASE_URL}?`, { params: searchParams });
+        return axios.get(`${this.#BASE_URL}?`, { params: searchParams })
+        // .then(response => {
+        //     const { totalHits } = response.data; 
+        //     this.totalPage = Math.ceil(totalHits / 20); 
+        //     return response 
+        // });
     };
 }
 
