@@ -86,8 +86,7 @@ const onSearchFormSubmit = async event => {
 
 const removeBtnLoadMore = () => (
     loadMoreBtnEl.classList.add('is-hidden'),
-    loadMoreBtnEl.removeEventListener('click', onLoadMoreBtnClick),
-    console.log(1,23)
+    loadMoreBtnEl.removeEventListener('click', onLoadMoreBtnClick)
 );
 
 const addBtnLoadMore = () => {
