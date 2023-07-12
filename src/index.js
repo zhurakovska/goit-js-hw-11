@@ -29,12 +29,12 @@ const onLoadMoreBtnClick = async () => {
         }
     
         const { height: cardHeight } = document
-        .querySelector('.gallery')
-        .lastElementChild.getBoundingClientRect();
-  
-      window.scrollBy({
-        top: cardHeight * 2,
-        behavior: 'smooth',
+            .querySelector('.gallery')
+            .lastElementChild.getBoundingClientRect();
+    
+            window.scrollBy({
+            top: cardHeight * 2,
+            behavior: 'smooth',
       });    
 
     } catch(error) {
