@@ -81,7 +81,9 @@ const onSearchFormSubmit = async event => {
     } catch (error) {
         console.log('Нажаль не змоглы знайти нчого по вашому запыту')
     }
-}
+
+    // event.currentTarget.reset()
+}  
 
 const removeBtnLoadMore = () => (
     loadMoreBtnEl.classList.add('is-hidden'),
