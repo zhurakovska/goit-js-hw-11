@@ -1,4 +1,6 @@
 import axios from "axios";
+import SimpleLightbox from "simplelightbox";
+import "simplelightbox/dist/simple-lightbox.min.css";
 
 export class Pixabay {
     #BASE_URL = 'https://pixabay.com/api/'
@@ -8,6 +10,10 @@ export class Pixabay {
         this.searchQuery = ''
         this.page = 1
         // this.totalPage = 0;
+        this.lightbox = new SimpleLightbox(".gallery a", {
+            captionDelay: 250,
+            captionsData: "alt"
+        });
     }
 
     axiosPhotos(){
