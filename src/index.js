@@ -52,7 +52,6 @@ const onSearchFormSubmit = async event => {
         const {hits, total, totalHits} = response.data
 
         const totalPage = Math.ceil(totalHits / 40)
-            console.log(totalPage)
 
             if(totalHits > 0) {
                 Notiflix.Notify.success(`Hooray! We found ${totalHits} images.`);
