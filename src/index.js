@@ -1,4 +1,3 @@
-// import axios from "axios";
 import Notiflix from 'notiflix';
 import makeGalleryCard from './gallery-card.hbs'
 import {Pixabay} from './pixabay-api'
@@ -25,7 +24,6 @@ const onLoadMoreBtnClick = async () => {
 
         if (totalPage === pixabay.page) {
             removeBtnLoadMore()
-            Notiflix.Notify.failure('We are sorry, but you have reached the end of search results.')
         }
     
         const { height: cardHeight } = document
@@ -68,7 +66,6 @@ const onSearchFormSubmit = async event => {
                 const galleryMarkup = makeGalleryCard(hits)
                 listEl.innerHTML = galleryMarkup
                 removeBtnLoadMore()
-                // Notiflix.Notify.failure('We are sorry, but you have reached the end of search results.')
                 return
             }
             
@@ -78,15 +75,15 @@ const onSearchFormSubmit = async event => {
             addBtnLoadMore()
             
     } catch (error) {
-        console.log('Нажаль не змоглы знайти нчого по вашому запыту')
+        console.log('Unfortunately, we could not find anything for your request')
     }
 
-    // event.currentTarget.reset()
 }  
 
 const removeBtnLoadMore = () => (
     loadMoreBtnEl.classList.add('is-hidden'),
-    loadMoreBtnEl.removeEventListener('click', onLoadMoreBtnClick)
+    loadMoreBtnEl.removeEventListener('click', onLoadMoreBtnClick),
+    Notiflix.Notify.info('We are sorry, but you have reached the end of search results.')
 );
 
 const addBtnLoadMore = () => {
