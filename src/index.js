@@ -44,8 +44,10 @@ const onSearchFormSubmit = async event => {
     event.preventDefault()
     const searchQuery = event.currentTarget.elements.searchQuery.value
     pixabay.searchQuery = searchQuery
+    pixabay.page = 1;
 
     try{
+        
         const response = await pixabay.axiosPhotos()
         const {hits, total, totalHits} = response.data
 
@@ -80,10 +82,10 @@ const onSearchFormSubmit = async event => {
 
 }  
 
-const removeBtnLoadMore = () => (
+const removeBtnLoadMore = (event) => (
     loadMoreBtnEl.classList.add('is-hidden'),
     loadMoreBtnEl.removeEventListener('click', onLoadMoreBtnClick),
-    Notiflix.Notify.info('We are sorry, but you have reached the end of search results.')
+    Notiflix.Notify.info('We are sorry, but you have reached the end of search results.'),
 );
 
 const addBtnLoadMore = () => {
